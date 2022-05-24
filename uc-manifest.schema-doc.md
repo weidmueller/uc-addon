@@ -59,7 +59,7 @@
 | + [version](#version )                 | No      | string          | No         | -          | The version of the add-on, i.e. 1.0.0-1                                              |
 | + [title](#title )                     | No      | string          | No         | -          | The title of the add-on will preferably be short                                     |
 | + [description](#description )         | No      | string          | No         | -          | description will provide a more lengthy explanation about the purpose of the add ... |
-| + [logo](#logo )                       | No      | string          | No         | -          | Path to the logo based on the root path                                              |
+| + [logo](#logo )                       | No      | string          | No         | -          | Path to the logo based on the root path. The logo should be at least 128 x 128 p ... |
 | - [vendor](#vendor )                   | No      | object          | No         | -          | Add-ons vendor information                                                           |
 | + [services](#services )               | No      | object          | No         | -          | services definition contains configuration that is applied to each add-on servic ... |
 | - [environments](#environments )       | No      | object          | No         | -          | The environments object includes the different environment settings for the defi ... |
@@ -70,10 +70,9 @@
 
 ## <a name="manifestVersion"></a>1. [Required] Property `root > manifestVersion`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** The version of the manifest
 
@@ -84,10 +83,9 @@
 
 ## <a name="version"></a>2. [Required] Property `root > version`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** The version of the add-on, i.e. 1.0.0-1
 
@@ -98,30 +96,27 @@
 
 ## <a name="title"></a>3. [Required] Property `root > title`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** The title of the add-on will preferably be short
 
 ## <a name="description"></a>4. [Required] Property `root > description`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** description will provide a more lengthy explanation about the purpose of the add-on
 
 ## <a name="logo"></a>5. [Required] Property `root > logo`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
-**Description:** Path to the logo based on the root path
+**Description:** Path to the logo based on the root path. The logo should be at least 128 x 128 pixels.
 
 ## <a name="vendor"></a>6. [Optional] Property `root > vendor`
 
@@ -145,64 +140,57 @@
 
 ### <a name="vendor_name"></a>6.1. [Optional] Property `root > vendor > name`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Name of the vendor
 
 ### <a name="vendor_url"></a>6.2. [Optional] Property `root > vendor > url`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Website url of the vendor
 
 ### <a name="vendor_email"></a>6.3. [Optional] Property `root > vendor > email`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Email address of the vendor
 
 ### <a name="vendor_street"></a>6.4. [Optional] Property `root > vendor > street`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Street address with house number of the vendor
 
 ### <a name="vendor_zip"></a>6.5. [Optional] Property `root > vendor > zip`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** The zip of the vendor
 
 ### <a name="vendor_city"></a>6.6. [Optional] Property `root > vendor > city`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** City of the vendor
 
 ### <a name="vendor_country"></a>6.7. [Optional] Property `root > vendor > country`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Country of the vendor
 
@@ -240,10 +228,9 @@ must respect the following conditions
 
 #### <a name="services_pattern1_type"></a>7.1.1. [Required] Property `root > services > ^[a-zA-Z0-9]+$ > type`
 
-| Type                      | `enum (of string)`                                                        |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `enum (of string)` |
+| ---- | ------------------ |
+|      |                    |
 
 **Description:** Define the type of the service. Only the value 'docker-compose' is supported at the moment
 
@@ -293,10 +280,9 @@ must respect the following conditions
 
 #### <a name="environments_pattern1_type"></a>8.1.1. [Optional] Property `root > environments > ^[a-zA-Z0-9]+$ > type`
 
-| Type                      | `enum (of string)`                                                        |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `enum (of string)` |
+| ---- | ------------------ |
+|      |                    |
 
 **Description:** Define the type of the volume. Type 'docker-compose' will create and associate when starting the container. Only the value 'docker-compose' is supported at the moment
 
@@ -352,10 +338,9 @@ Must be one of:
 
 ### <a name="settings_environmentVariables"></a>9.1. [Optional] Property `root > settings > environmentVariables`
 
-| Type                      | `array of object`                                                         |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `array of object` |
+| ---- | ----------------- |
+|      |                   |
 
 **Description:** Defines editable environment variables
 
@@ -394,73 +379,65 @@ Must be one of:
 
 ##### <a name="settings_environmentVariables_items_name"></a>9.1.1.1. Property `root > settings > environmentVariables > environmentVariables items > name`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Name of the environment variable
 
 ##### <a name="settings_environmentVariables_items_label"></a>9.1.1.2. Property `root > settings > environmentVariables > environmentVariables items > label`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Label of the environment variable edit field
 
 ##### <a name="settings_environmentVariables_items_default"></a>9.1.1.3. Property `root > settings > environmentVariables > environmentVariables items > default`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Default value of the environment variable
 
 ##### <a name="settings_environmentVariables_items_description"></a>9.1.1.4. Property `root > settings > environmentVariables > environmentVariables items > description`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Description of the environment variable
 
 ##### <a name="settings_environmentVariables_items_required"></a>9.1.1.5. Property `root > settings > environmentVariables > environmentVariables items > required`
 
-| Type                      | `boolean`                                                                 |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `boolean` |
+| ---- | --------- |
+|      |           |
 
 **Description:** Optional boolean flag that will apply the required validator
 
 ##### <a name="settings_environmentVariables_items_pattern"></a>9.1.1.6. Property `root > settings > environmentVariables > environmentVariables items > pattern`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** Optional regex pattern that will apply the pattern validator
 
 ##### <a name="settings_environmentVariables_items_readonly"></a>9.1.1.7. Property `root > settings > environmentVariables > environmentVariables items > readonly`
 
-| Type                      | `boolean`                                                                 |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `boolean` |
+| ---- | --------- |
+|      |           |
 
 **Description:** Optional boolean if the environment variable should be displayed as readonly
 
 ##### <a name="settings_environmentVariables_items_select"></a>9.1.1.8. Property `root > settings > environmentVariables > environmentVariables items > select`
 
-| Type                      | `array of object`                                                         |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `array of object` |
+| ---- | ----------------- |
+|      |                   |
 
 **Description:** Optional select options that will display a select input
 
@@ -494,24 +471,21 @@ Must be one of:
 
 ##### <a name="settings_environmentVariables_items_select_items_label"></a>9.1.1.8.1.1. Property `root > settings > environmentVariables > environmentVariables items > select > select items > label`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 ##### <a name="settings_environmentVariables_items_select_items_value"></a>9.1.1.8.1.2. Property `root > settings > environmentVariables > environmentVariables items > select > select items > value`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 ##### <a name="settings_environmentVariables_items_select_items_default"></a>9.1.1.8.1.3. Property `root > settings > environmentVariables > environmentVariables items > select > select items > default`
 
-| Type                      | `boolean`                                                                 |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `boolean` |
+| ---- | --------- |
+|      |           |
 
 ## <a name="publish"></a>10. [Optional] Property `root > publish`
 
@@ -543,26 +517,24 @@ must respect the following conditions
 | Property                          | Pattern | Type   | Deprecated | Definition | Title/Description                                                                    |
 | --------------------------------- | ------- | ------ | ---------- | ---------- | ------------------------------------------------------------------------------------ |
 | + [from](#publish_pattern1_from ) | No      | string | No         | -          | An absolute URL consisting of protocol, origin host and port e.g. http://localho ... |
-| + [to](#publish_pattern1_to )     | No      | string | No         | -          | A relative URL path e.g. /my/addon                                                   |
+| + [to](#publish_pattern1_to )     | No      | string | No         | -          | A relative URL path e.g. /home, which will be prefixed with the add-on name, i.e ... |
 |                                   |         |        |            |            |                                                                                      |
 
 #### <a name="publish_pattern1_from"></a>10.1.1. [Required] Property `root > publish > ^[a-zA-Z0-9]+$ > from`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 **Description:** An absolute URL consisting of protocol, origin host and port e.g. http://localhost:8456
 
 #### <a name="publish_pattern1_to"></a>10.1.2. [Required] Property `root > publish > ^[a-zA-Z0-9]+$ > to`
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
-**Description:** A relative URL path e.g. /my/addon
+**Description:** A relative URL path e.g. /home, which will be prefixed with the add-on name, i.e. add-on-name/home
 
 ### <a name="publish_pattern2"></a>10.2. [Optional]Pattern Property `root > publish > additionalProperties`
 > All property whose name matches the regular expression 
@@ -576,10 +548,9 @@ must respect the following conditions
 
 ## <a name="platform"></a>11. [Required] Property `root > platform`
 
-| Type                      | `array of string`                                                         |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `array of string` |
+| ---- | ----------------- |
+|      |                   |
 
 |                      | Array restrictions |
 | -------------------- | ------------------ |
@@ -597,10 +568,9 @@ must respect the following conditions
 
 ### <a name="autogenerated_heading_4"></a>11.1. root > platform > platform items
 
-| Type                      | `string`                                                                  |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Additional properties** | [[Any type: allowed]](# "Additional Properties of any type are allowed.") |
-|                           |                                                                           |
+| Type | `string` |
+| ---- | -------- |
+|      |          |
 
 | Restrictions                      |                                                             |
 | --------------------------------- | ----------------------------------------------------------- |
@@ -608,4 +578,4 @@ must respect the following conditions
 |                                   |                                                             |
 
 ----------------------------------------------------------------------------------------------------------------------------
-Generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans) on 2022-04-07 at 13:15:06 +0000
+Generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans) on 2022-05-23 at 07:46:06 +0000
