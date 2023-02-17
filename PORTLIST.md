@@ -3,14 +3,17 @@ This list documents the used dockerports within the 65280-65535 port range.
 
 | Port number | application name           | reverse proxy name |
 |-------------|----------------------------|--------------------|
-|  8888       | anyviz                     | /anyviz		        |
-| 50051       | ngnix                      |			              |
-| 50052       | uc-service-manager         |			              |
-| 50062       | uc-modbus-slave            |			              |
-| 50072       | uc-opc-ua                  |			              |
-| 50082       | uc-information-service     |			              |
-| 50092       | uc-iam                     |			              |
-| 50100       | uc-addon                   |			              |
+|  1740 - 1743| Codesys UDP                |                    |
+|  4840       | Codesys OPC UA Server      |                    |
+|  11740 - 11743| Codesys TCP              |                    |
+|  8888       | anyviz                     | /anyviz		    |
+| 50051       | ngnix                      |			        |
+| 50052       | uc-service-manager         |			        |
+| 50062       | uc-modbus-slave            |			        |
+| 50072       | uc-opc-ua                  |			        |
+| 50082       | uc-information-service     |			        |
+| 50092       | uc-iam                     |			        |
+| 50100       | uc-addon                   |			        |
 | 65280       | uc-addon-crosser           | -                  |
 | 65283       | uc-addon-crosser           | -                  |
 | 65291       | uc-addon-crosser           | /                  |
@@ -29,4 +32,4 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65350       | uc-addon-flecs             | /		              |
 | 65360       | uc-addon-nodered           | /red               |
 | 65530       | uc-addon-codesys           | /                  |
-
+| 65531       | uc-addon-codesys (reserved)| -                  |
