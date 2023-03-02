@@ -1,12 +1,12 @@
-# Add-on
-With the add-ons you can set up weidmueller devices for your needs.
+# App
+With apps you can set up weidmueller devices for your needs.
 
 
 ## Manifest
-Metainformation about an add-on are stored in the manifest.
+Metainformation about an app are stored in the manifest.
 Please have a look into the [manifest documentation](./uc-manifest.schema-doc.md). 
 
-## Add-on Packager
-To pubish an add-on you need to set up the add-on packager.
+## App Packager
+To pubish an app you need to set up the app packager.
 Please see the [USER_GUIDE](./USER_GUIDE.md) for details.
 
