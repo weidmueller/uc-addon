@@ -6,7 +6,7 @@ You can pull the `u-control/uc-aom-packager` image from `wmucdev.azurecr.io` reg
 Usage:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 \
     uc-aom-packager <command> [flags]
 ```
@@ -57,7 +57,7 @@ A `latest` tag isn't offered. Therefore, you need to choose at least the `major`
 Usage:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 \
     uc-aom-packager push [flags]
 ```
@@ -121,7 +121,7 @@ Provide the credentials in the following `source-credentials.json` file:
 }
 ```
 
-For the uc-aom-packager to publish `app-example` to our dedicated App registry,
+For the uc-aom-packager to publish `app-example` to our dedicated app registry,
 we require a further credentials file `target-credentials.json`, which has the following contents:
 
 ```json
@@ -138,7 +138,7 @@ the host directory `/home/apps/example`.
 To build and publish the example app `app-example`, we could use the following docker command in combination with the `push` command:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 \
     uc-aom-packager push \
@@ -162,7 +162,7 @@ There is no downgrade migration between manifest schema versions.
 To publish an app for 1.16 you need to use packager 0.3:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0.3 \
     uc-aom-packager push \
@@ -179,7 +179,7 @@ The packager creates the 2.0 package format since packager version 0.4.
 Usage:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 \
     uc-aom-packager pull [flags]
 ```
@@ -196,7 +196,7 @@ Flags:
 Example:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 uc-aom-packager \
     pull
@@ -221,7 +221,7 @@ The target credentials file `target-credentials.json` has the same content as in
 Usage:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 \
     uc-aom-packager export [flags]
 ```
@@ -237,7 +237,7 @@ Flags:
 Example:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 uc-aom-packager \
     export
@@ -295,7 +295,7 @@ For that, you have to use the `uc-aom-packager` in combination with the `pull` c
 Example:
 
 ```sh
-docker run -it --rm \
+docker run -it --rm --pull=always \
     --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
     wmucdev.azurecr.io/u-control/uc-aom-packager:0 uc-aom-packager \
     pull
