@@ -26,6 +26,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65310       | uc-addon-telemetry         | /tele		          |
 | 65320       | uc-addon-easyconnect-iiot  | /eacc		          |
 | 65321       | uc-addon-easyconnect-iiot  | -		              |
+| 65325       | u-os-app-u-link	  	   | /		              |
 | 65330       | uc-addon-portainer         | -                  |
 | 65333       | uc-addon-portainer         | /portainer         |
 | 65340       | uc-addon-filebrowser       | /                  |
