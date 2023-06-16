@@ -31,8 +31,8 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65340       | uc-addon-filebrowser       | /                  |
 | 65350       | uc-addon-flecs             | /		              |
 | 65360       | uc-addon-nodered           | /red               |
-| 65530       | uc-addon-codesys (Codesys WebServer HTTP)| /          |
-| 65531       | Codesys WebServer HTTPS     | -                 |
-| 65532       | uc-addon-codesys (reserved) | -                 |
+| 65530       | u-os-app-codesys (Codesys WebServer HTTP)| /          |
+| 65531       | u-os-app-codesys (Codesys WebServer HTTPS)     | -                 |
+| 65532       | u-os-app-codesys (CODESYS Visualization Proxy) | /application/visualization                |
 | 65533       | u-os-app-registry registry | -                 |
 | 65534       | u-os-app-registry-browser | /app-hub                 |
