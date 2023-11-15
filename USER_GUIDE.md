@@ -128,9 +128,12 @@ we require a further credentials file `target-credentials.json`, which has the f
 {
   "username": "<username>",
   "password": "<password>",
-  "repositoryname": "app-example"
+  "repositoryname": "app-example",
+  "serveraddress": "<custom registry address>"
 }
 ```
+
+The server address within the target credentials is optional. If it is set, the uc-aom-packager will use that value as the registry address instead of the default one.
 
 All of the files (`manifest.json`, `logo.png`, `source-credentials.json`, and `target-credentials.json`) exist in
 the host directory `/home/apps/example`.
@@ -212,7 +215,8 @@ The target credentials file `target-credentials.json` has the same content as in
 {
   "username": "<username>",
   "password": "<password>",
-  "repositoryname": "app-example"
+  "repositoryname": "app-example",
+  "serveraddress": "<custom registry address>"
 }
 ```
 
@@ -253,9 +257,29 @@ The target credentials file `target-credentials.json` has the same content as in
 {
   "username": "<username>",
   "password": "<password>",
-  "repositoryname": "app-example"
+  "repositoryname": "app-example",
+  "serveraddress": "<custom registry address>"
 }
 ```
+
+## Change the default registry address
+The uc-aom-packager uses the Weidmüller development registry by default.
+To change the default registry server address, overwrite the DEFAULT_REGISTRY_SERVER_ADDRESS env var.
+
+Example:
+
+```sh
+docker run -it --rm --pull=always \
+    --mount src=/home/apps/example,target=/tmp/app-example,type=bind \
+    wmucdev.azurecr.io/u-control/uc-aom-packager:0.3 \
+    uc-aom-packager push \
+    -e DEFAULT_REGISTRY_SERVER_ADDRESS=custom.registry.address
+    -m /tmp/app-example \
+    -s /tmp/app-example/source-credentials.json \
+    -t /tmp/app-example/target-credentials.json \
+    -v
+```
+ 
 
 ## Change app registry on the device
 
