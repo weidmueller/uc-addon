@@ -26,7 +26,7 @@
       "logo": {
         "type": "string",
         "description": "Path to the logo based on the root path. The logo should be at least 128 x 128 pixels.",
-        "pattern":"^.+\\.(jpg|png|jpeg|svg)$"
+        "pattern": "^.+\\.(jpg|png|jpeg|svg)$"
       },
       "vendor": {
         "type": "object",
@@ -85,22 +85,38 @@
               "type": {
                 "type": "string",
                 "description": "Define the type of the service. Only the value 'docker-compose' is supported at the moment",
-                "enum": ["docker-compose"]
+                "enum": [
+                  "docker-compose"
+                ]
               },
               "config": {
                 "type": "object",
                 "description": "Defines the docker settings for this service based on the docker compose structure. Any setting names that contain an underscore '_' should be converted to camelCase, e.g. replace `network_mode` with `networkMode`.",
                 "properties": {
                   "restart": {
-                  "type": "string",
+                    "type": "string",
                     "description": "Defines the restart policy for the service. Restart policy 'always' is not allowed to prevent endless restarts.",
                     "optional": true,
-                    "enum": ["no","on-failure","unless-stopped"]
+                    "enum": [
+                      "no",
+                      "on-failure",
+                      "unless-stopped"
+                    ]
+                  },
+                  "image": {
+                    "type": "string",
+                    "description": "Defines the name of the docker image of the service"
                   }
-                }
+                },
+                "required": [
+                  "image"
+                ]
               }
             },
-            "required": ["type", "config"]
+            "required": [
+              "type",
+              "config"
+            ]
           }
         },
         "additionalProperties": false,
@@ -117,7 +133,9 @@
               "type": {
                 "type": "string",
                 "description": "Define the type of the volume. Type 'docker-compose' will create and associate when starting the container. Only the value 'docker-compose' is supported at the moment",
-                "enum": ["docker-compose"]
+                "enum": [
+                  "docker-compose"
+                ]
               },
               "config": {
                 "type": "object",
@@ -192,12 +210,18 @@
                         "type": "boolean"
                       }
                     },
-                    "required": ["label", "value"],
+                    "required": [
+                      "label",
+                      "value"
+                    ],
                     "additionalProperties": false
                   }
                 }
               },
-              "required": ["name", "label"],
+              "required": [
+                "name",
+                "label"
+              ],
               "additionalProperties": false
             }
           }
@@ -220,7 +244,10 @@
                 "description": "A relative URL path e.g. /home, which will be prefixed with the app name, i.e. app-name/home"
               }
             },
-            "required": ["from", "to"]
+            "required": [
+              "from",
+              "to"
+            ]
           },
           "additionalProperties": false
         },
@@ -235,7 +262,9 @@
           "properties": {
             "name": {
               "type": "string",
-              "enum": ["ucontrol.software.root_access"],
+              "enum": [
+                "ucontrol.software.root_access"
+              ],
               "description": "Specifies a single hardware or software feature used by the application, as a descriptor string."
             },
             "required": {
@@ -243,7 +272,9 @@
               "description": "Boolean value that indicates whether the application requires the feature specified in `name`. The default value if not declared is `true`."
             }
           },
-          "required": ["name"],
+          "required": [
+            "name"
+          ],
           "additionalProperties": false
         }
       },
