@@ -263,8 +263,9 @@ The target credentials file `target-credentials.json` has the same content as in
 ```
 
 ## Change the default registry address
+
 The uc-aom-packager uses the Weidmüller development registry by default.
-To change the default registry server address, overwrite the DEFAULT_REGISTRY_SERVER_ADDRESS env var.
+To change the default registry server address, override the DEFAULT_REGISTRY_SERVER_ADDRESS env var.
 
 Example:
 
@@ -279,15 +280,14 @@ docker run -it --rm --pull=always \
     -t /tmp/app-example/target-credentials.json \
     -v
 ```
- 
 
 ## Change app registry on the device
 
-Overwriting the default app registry requires a debug firmware to be installed on the device.
+Overriding the default app registry requires a debug firmware to be installed on the device.
 
 If a debug firmware is installed, access the device and navigate to `/var/lib/uc-aom` and create the file `registrycredentials.json`.
 
-Depending on the type of registry, provide the following content in the created file:
+Depending on the type of registry, the content of the file will be different:
 
 ### Secure registry
 
@@ -313,9 +313,10 @@ To access an insecure registry only the server address is required.
 
 ## File based app installation
 
-You can install the app offline via files beside the installation of an app via a docker registry.
+You can install the app offline via files, in addition to installation of an app via a docker registry.
 
-For that, you have to use the `uc-aom-packager` in combination with the `pull` command and the `--extract=false` option. Both are used to store the app on your local filesystem.
+The offline installation, requires you to use the `uc-aom-packager` in combination with the `pull` command and the `--extract=false` option.
+Both are used to store the app on your local filesystem.
 Example:
 
 ```sh
