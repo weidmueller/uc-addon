@@ -16,7 +16,6 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 50100         | uc-addon                                                  |                            |
 | 65280         | uc-addon-crosser                                          | -                          |
 | 65283         | uc-addon-crosser                                          | -                          |
-| 65291         | uc-addon-crosser                                          | /                          |
 | 65300         | uc-addon-procon-web-es                                    | -                          |
 | 65301         | uc-addon-procon-web-es                                    | /sysm                      |
 | 16620         | uc-addon-procon-web-es                                    | -                          |
