@@ -9,6 +9,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 4840          | Codesys OPC UA Server                                        |                            |
 | 11740 - 11743 | Codesys TCP                                                  |                            |
 | 8888          | anyviz                                                       | /anyviz                    |
+| 43981         | u-os-app-rexygen (Connection to Rexygen Studio via a custom binary protocol ) | -                          |
 | 50051         | ngnix                                                        |                            |
 | 50052         | uc-service-manager                                           |                            |
 | 50062         | uc-modbus-slave                                              |                            |
