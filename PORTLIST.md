@@ -33,6 +33,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65360         | uc-addon-nodered                                          | /red                       |
 | 65370         | u-os-app-siemens-ied (Public port of the Siemens Service) | -                          |
 | 65371         | u-os-app-siemens-ied (Redirect service)                   | /                          |
+| 65400         | u-os-app-usense-platform                                  | /                          |
 | 65530         | u-os-app-codesys (Codesys WebServer HTTP)                 | /                          |
 | 65531         | u-os-app-codesys (Codesys WebServer HTTPS)                | -                          |
 | 65532         | u-os-app-codesys (CODESYS Visualization Proxy)            | /application/visualization |
