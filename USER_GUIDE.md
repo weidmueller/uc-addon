@@ -12,10 +12,10 @@ docker run -it --rm --pull=always \
 ```
 
 The commands are:
-| Command | Description |
-| :--- | :---- |
-| push | push an app to the Weidmüller development registry |
-| pull | pull a previously pushed app to the local file system |
+| Command | Description                                           |
+| :------ | :---------------------------------------------------- |
+| push    | push an app to the Weidmüller development registry    |
+| pull    | pull a previously pushed app to the local file system |
 
 ## Prerequisites
 
@@ -63,12 +63,12 @@ docker run -it --rm --pull=always \
 ```
 
 Flags:
-| Flags | Description |
-| :--- | :---- |
-| -m, --manifest string | a directory path which contains logo and manifest.json files |
-| -s, --source-credentials string | path to a file providing credentials, for the registry hosting docker images, referenced in the app's manifest.json file |
+| Flags                           | Description                                                                                                                           |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
+| -m, --manifest string           | a directory path which contains logo and manifest.json files                                                                          |
+| -s, --source-credentials string | path to a file providing credentials, for the registry hosting docker images, referenced in the app's manifest.json file              |
 | -t, --target-credentials string | path to a file providing credentials for the app's host repository. The target registry is always the Weidmüller development registry |
-| -v, --verbose count | explain what is being done, pass multiple times to increase verbosity |
+| -v, --verbose count             | explain what is being done, pass multiple times to increase verbosity                                                                 |
 
 Example:
 
@@ -188,13 +188,13 @@ docker run -it --rm --pull=always \
 ```
 
 Flags:
-| Flags | Description |
-| :--- | :---- |
-| -o, --output string | output directory where the pulled app will be stored |
+| Flags                           | Description                                                                                                         |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------ |
+| -o, --output string             | output directory where the pulled app will be stored                                                                |
 | -t, --target-credentials string | filepath to the target registry credentials file. The target registry is always the Weidmüller development registry |
-| -v, --verbose count | explain what is being done, pass multiple times to increase verbosity |
-| -x, --extract | extract the app archive (default true) |
-| --version string | version of the app to be pulled from the registry |
+| -v, --verbose count             | explain what is being done, pass multiple times to increase verbosity                                               |
+| -x, --extract                   | extract the app archive (default true)                                                                              |
+| --version string                | version of the app to be pulled from the registry                                                                   |
 
 Example:
 
@@ -231,12 +231,12 @@ docker run -it --rm --pull=always \
 ```
 
 Flags:
-| Flags | Description |
-| :--- | :---- |
+| Flags                           | Description                                                                                                         |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------ |
 | -t, --target-credentials string | filepath to the target registry credentials file. The target registry is always the Weidmüller development registry |
-| --version string | version of the app to be exported from the registry |
-| -o, --output string | output directory where the exported app will be stored as an swu file |
-| -v, --verbose count | explain what is being done, pass multiple times to increase verbosity |
+| --version string                | version of the app to be exported from the registry                                                                 |
+| -o, --output string             | output directory where the exported app will be stored as an swu file                                               |
+| -v, --verbose count             | explain what is being done, pass multiple times to increase verbosity                                               |
 
 Example:
 
@@ -348,6 +348,6 @@ There are several versions of the manifest file format
 This table shows which manifest file versions support specific device releases and packager.
 
 | Manifest file format | Device release | uc-aom-packager release |
-| :--- | :----   | :----  |
-| 0.1  | 1.16.0+ | 0.1.0+ |
-| 0.2  | 2.0.0+  | 0.4.0+ |
+| :------------------- | :------------- | :---------------------- |
+| 0.1                  | 1.16.0+        | 0.1.0+                  |
+| 0.2                  | 2.0.0+         | 0.4.0+                  |
