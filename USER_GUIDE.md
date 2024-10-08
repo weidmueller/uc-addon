@@ -14,6 +14,7 @@ docker run -it --rm --pull=always \
 The commands are:
 | Command | Description                                           |
 | :------ | :---------------------------------------------------- |
+| export  | export an app as SWU for offline installation         |
 | push    | push an app to the Weidmüller development registry    |
 | pull    | pull a previously pushed app to the local file system |
 
@@ -117,7 +118,9 @@ Provide the credentials in the following `source-credentials.json` file:
 {
   "username": "<username>",
   "password": "<password>",
-  "serveraddress": "private.registry.io"
+  "serveraddress": "private.registry.io",
+  "plain-http": false,
+  "insecure": false
 }
 ```
 
@@ -129,11 +132,18 @@ we require a further credentials file `target-credentials.json`, which has the f
   "username": "<username>",
   "password": "<password>",
   "repositoryname": "app-example",
-  "serveraddress": "<custom registry address>"
+  "serveraddress": "<custom registry address>",
+  "plain-http": false,
+  "insecure": false
 }
 ```
 
 The server address within the target credentials is optional. If it is set, the uc-aom-packager will use that value as the registry address instead of the default one.
+
+By default, https is accepted as the server address.
+To access an http-only registry (e.g. for a local registry) you must set the `plain-http` field to `true`.
+
+To access an https registry without a TLS certificate check (e.g. for a self signed certificate) you must set the field `insecure` to `true`.
 
 All of the files (`manifest.json`, `logo.png`, `source-credentials.json`, and `target-credentials.json`) exist in
 the host directory `/home/apps/example`.
@@ -149,6 +159,57 @@ docker run -it --rm --pull=always \
     -s /tmp/app-example/source-credentials.json \
     -t /tmp/app-example/target-credentials.json \
     -v
+```
+
+### Create app with a docker image from Docker Hub
+
+You can directly create a u-OS app from docker hub.
+
+For those, provide the credentials in the following `source-credentials.json` file:
+
+```json
+{
+  "serveraddress": "docker.io"
+}
+```
+
+The docker image reference in the manifest needs to start with `library/`.
+
+A minimal `manifest.json` file references this docker hub docker image and has the following contents:
+
+```json
+{
+    "manifestVersion": "0.2",
+    "version": "0.1.0-1",
+    "title": "app-example",
+    "description": "Example to demonstrate uc-aom-packager tool",
+    "logo": "logo.png",
+    "services": {
+        "example-service": {
+            "type": "docker-compose",
+            "config": {
+                "image": "library/alpine:latest",
+                "stdinOpen": true,
+                "tty": true,
+                "containerName": "app-example-container"
+            }
+        }
+    },
+    "platform": [
+        "ucg",
+        "ucm",
+        "ucu"
+    ],
+    "vendor": {
+        "name": "Test Name",
+        "url": "https://www.example.com",
+        "email": "test@mail.test",
+        "street": "Test Street",
+        "zip": "12345",
+        "city": "Test City",
+        "country": "Test Country"
+    }
+}
 ```
 
 ### Note about publishing
@@ -216,7 +277,9 @@ The target credentials file `target-credentials.json` has the same content as in
   "username": "<username>",
   "password": "<password>",
   "repositoryname": "app-example",
-  "serveraddress": "<custom registry address>"
+  "serveraddress": "<custom registry address>",
+  "plain-http": false,
+  "insecure": false
 }
 ```
 
@@ -258,14 +321,16 @@ The target credentials file `target-credentials.json` has the same content as in
   "username": "<username>",
   "password": "<password>",
   "repositoryname": "app-example",
-  "serveraddress": "<custom registry address>"
+  "serveraddress": "<custom registry address>",
+  "plain-http": false,
+  "insecure": false
 }
 ```
 
 ## Change the default registry address
 
 The uc-aom-packager uses the Weidmüller development registry by default.
-To change the default registry server address, override the DEFAULT_REGISTRY_SERVER_ADDRESS env var.
+To change the default registry server address, override the `DEFAULT_REGISTRY_SERVER_ADDRESS` environment variable or set the `serveraddress` within the `target-credentials.json` file.
 
 Example:
 
@@ -287,29 +352,21 @@ Overriding the default app registry requires a debug firmware to be installed on
 
 If a debug firmware is installed, access the device and navigate to `/var/lib/uc-aom` and create the file `registrycredentials.json`.
 
-Depending on the type of registry, the content of the file will be different:
-
-### Secure registry
-
-To access a secure registry, username, password and server address are required.
+By default, https is accepted as the server address.
 
 ```json
 {
   "username": "<username>",
   "password": "<password>",
-  "serveraddress": "<serveraddress>"
+  "serveraddress": "<serveraddress>",
+  "plain-http": false,
+  "insecure": false,
 }
 ```
 
-### Insecure registry
+A http-only registry (e.g. a local registry) can be accessed by set the `plain-http` field to `true`.
 
-To access an insecure registry only the server address is required.
-
-```json
-{
-  "serveraddress": "<serveraddress>"
-}
-```
+To access an https registry without a TLS certificate check (e.g. for a self signed certificate) you can set the field `insecure` to `true`.
 
 ## File based app installation
 
@@ -334,6 +391,25 @@ docker run -it --rm --pull=always \
 The output folder used by the `pull` command can be copied to the specific folder `/var/cache/uc-aom/drop-in/` on the device.
 
 Now, if you [restart the service](#restarting-the-service) the apps represented by the copied files will be installed.
+
+## Filtering apps based on names
+
+To reduce loading times of the dialog when clicking `+ Install App`, you can add a whitelist to filter the apps by their repository-name.
+
+Create a file `/var/lib/uc-aom/config.json` and provide a list of regex expressions, then [restart uc-aom](#restarting-the-service). If the apps repository-name matches *any* of the rules it will be included. The repository-name is not the apps title you see in the dialog!
+
+```json
+{
+    "appsAllowedList": [
+        ".*node-red.*",
+        "test.*",
+    ]
+}
+```
+
+The example file would include all apps with a repo-name that starts with `test` *or* that contains `node-red`.
+The regex example can be found [here](https://regexr.com/83h2s).
+
 
 ## Restarting the service
 
