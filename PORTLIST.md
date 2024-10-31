@@ -25,7 +25,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 16800         | uc-addon-procon-web-es                                       | -                          |
 | 16810         | uc-addon-procon-web-es                                       | -                          |
 | 65302         | uc-addon-web-ssh                                             |                            |
-| 65305         | Reserved port for new procon-web app                         | /                          |
+| 65305         | u-os-app-procon-connect                                      | /                          |
 | 65310         | uc-addon-telemetry                                           | /tele                      |
 | 65320         | uc-addon-easyconnect-iiot                                    | /eacc                      |
 | 65321         | uc-addon-easyconnect-iiot                                    | -                          |
