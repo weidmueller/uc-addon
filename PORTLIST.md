@@ -42,6 +42,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65391         | u-os-app-usense (gRPC)                                                        | /                          |
 | 65392         | u-os-app-usense (NATS-Server)                                                 | /                          |
 | 65400         | u-os-app-nupano                                                               | /                          |
+| 65410         | u-os-app-u-sense-platform (Webserver)                                         | /                          |
 | 65530         | u-os-app-codesys (Codesys WebServer HTTP)                                     | /                          |
 | 65531         | u-os-app-codesys (Codesys WebServer HTTPS)                                    | -                          |
 | 65532         | u-os-app-codesys (CODESYS Visualization Proxy)                                | /application/visualization |
