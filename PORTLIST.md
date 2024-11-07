@@ -38,9 +38,10 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65370         | u-os-app-siemens-ied (Public port of the Siemens Service)                     | -                          |
 | 65371         | u-os-app-siemens-ied (Redirect service)                                       | /                          |
 | 65380         | u-os-app-rexygen                                                              | /                          |
-| 65390         | u-os-app-usense (Webserver)                                                   | /                          |
+| 65390         | u-os-app-usense (NATS-Server)                                                 | /                          |
 | 65391         | u-os-app-usense (gRPC)                                                        | /                          |
-| 65392         | u-os-app-usense (NATS-Server)                                                 | /                          |
+| 65392         | u-os-app-usense (gRPC web proxy)                                              | /                          |
+| 65393         | u-os-app-usense (Caddy)                                                       | /                          |
 | 65400         | u-os-app-nupano                                                               | /                          |
 | 65410         | u-os-app-u-sense-platform (Webserver)                                         | /                          |
 | 65411         | u-os-app-u-sense-platform (MQTT Broker, local)                                | /                          |
