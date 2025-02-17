@@ -35,6 +35,7 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65340         | uc-addon-filebrowser                                                         | /                          |
 | 65350         | uc-addon-flecs                                                               | /                          |
 | 65360         | uc-addon-nodered                                                             | /red                       |
+| 65362         | u-os-app-node-red-u-sense                                                    | /red                       |
 | 65370         | u-os-app-siemens-ied (Public port of the Siemens Service)                    | -                          |
 | 65371         | u-os-app-siemens-ied (Redirect service)                                      | /                          |
 | 65380         | u-os-app-rexygen                                                             | /                          |
