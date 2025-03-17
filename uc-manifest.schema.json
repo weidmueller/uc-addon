@@ -5,296 +5,295 @@
     "description": "Schema for the u-create manifest",
     "type": "object",
     "properties": {
-      "manifestVersion": {
-        "type": "string",
-        "pattern": "^[0-9]+\\.?[0-9]+?$",
-        "description": "The version of the manifest"
-      },
-      "version": {
-        "type": "string",
-        "pattern": "^([0-9]+\\.)+([0-9]+)(-(alpha|beta|rc)\\.[0-9]+)?(-[0-9]+(-(alpha|beta|rc)\\.[0-9]+)?)$",
-        "description": "The version of the app, i.e. 1.0.0-1"
-      },
-      "title": {
-        "type": "string",
-        "description": "The title of the app will preferably be short"
-      },
-      "description": {
-        "type": "string",
-        "description": "description will provide a more lengthy explanation about the purpose of the app"
-      },
-      "logo": {
-        "type": "string",
-        "description": "Path to the logo based on the root path. The logo should be at least 128 x 128 pixels.",
-        "pattern": "^.+\\.(jpg|png|jpeg|svg)$"
-      },
-      "vendor": {
-        "type": "object",
-        "description": "Apps vendor information",
-        "properties": {
-          "name": {
+        "manifestVersion": {
             "type": "string",
-            "description": "Name of the vendor"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Website url of the vendor"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "description": "Email address of the vendor"
-          },
-          "street": {
-            "type": "string",
-            "description": "Street address with house number of the vendor"
-          },
-          "zip": {
-            "type": "string",
-            "description": "The zip of the vendor"
-          },
-          "city": {
-            "type": "string",
-            "description": "City of the vendor"
-          },
-          "country": {
-            "type": "string",
-            "description": "Country of the vendor"
-          }
+            "pattern": "^[0-9]+\\.?[0-9]+?$",
+            "description": "The version of the manifest"
         },
-        "additionalProperties": false,
-        "required": [
-          "name",
-          "url",
-          "email",
-          "street",
-          "zip",
-          "city",
-          "country"
-        ]
-      },
-      "services": {
-        "type": "object",
-        "description": "services definition contains configuration that is applied to each app service",
-        "patternProperties": {
-          "^[a-zA-Z0-9-]+$": {
+        "version": {
+            "type": "string",
+            "pattern": "^([0-9]+\\.)+([0-9]+)(-(alpha|beta|rc)\\.[0-9]+)?(-[0-9]+(-(alpha|beta|rc)\\.[0-9]+)?)$",
+            "description": "The version of the app, i.e. 1.0.0-1"
+        },
+        "title": {
+            "type": "string",
+            "description": "The title of the app will preferably be short"
+        },
+        "description": {
+            "type": "string",
+            "description": "description will provide a more lengthy explanation about the purpose of the app"
+        },
+        "logo": {
+            "type": "string",
+            "description": "Path to the logo based on the root path. The logo should be at least 128 x 128 pixels.",
+            "pattern": "^.+\\.(jpg|png|jpeg|svg)$"
+        },
+        "vendor": {
             "type": "object",
-            "description": "A definition of a service that will be started",
+            "description": "Apps vendor information",
             "properties": {
-              "type": {
-                "type": "string",
-                "description": "Define the type of the service. Only the value 'docker-compose' is supported at the moment",
-                "enum": [
-                  "docker-compose"
-                ]
-              },
-              "config": {
-                "type": "object",
-                "description": "Defines the docker settings for this service based on the docker compose structure. Any setting names that contain an underscore '_' should be converted to camelCase, e.g. replace `network_mode` with `networkMode`.",
-                "properties": {
-                  "restart": {
-                    "type": "string",
-                    "description": "Defines the restart policy for the service. Restart policy 'always' is not allowed to prevent endless restarts.",
-                    "optional": true,
-                    "enum": [
-                      "no",
-                      "on-failure",
-                      "unless-stopped"
-                    ]
-                  },
-                  "image": {
-                    "type": "string",
-                    "description": "Defines the name of the docker image of the service"
-                  }
-                },
-                "required": [
-                  "image"
-                ]
-              }
-            },
-            "required": [
-              "type",
-              "config"
-            ]
-          }
-        },
-        "additionalProperties": false,
-        "minProperties": 1
-      },
-      "environments": {
-        "type": "object",
-        "description": "The environments object includes the different environment settings for the defined services.",
-        "patternProperties": {
-          "^[a-zA-Z0-9-]+$": {
-            "type": "object",
-            "description": "A definition of an environment",
-            "properties": {
-              "type": {
-                "type": "string",
-                "description": "Define the type of the volume. Type 'docker-compose' will create and associate when starting the container. Only the value 'docker-compose' is supported at the moment",
-                "enum": [
-                  "docker-compose"
-                ]
-              },
-              "config": {
-                "type": "object",
-                "description": "Defines the docker environment settings based on the docker compose structure",
-                "properties": {
-                  "volumes": {
-                    "type": "object",
-                    "description": "Docker Volumes settings based on the docker compose structure"
-                  },
-                  "networks": {
-                    "type": "object",
-                    "description": "Docker networks settings based on the docker compose structure"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "settings": {
-        "type": "object",
-        "description": "The settings section defines the editable values of an app",
-        "properties": {
-          "environmentVariables": {
-            "description": "Defines editable environment variables",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
                 "name": {
-                  "type": "string",
-                  "description": "Name of the environment variable"
+                    "type": "string",
+                    "description": "Name of the vendor"
                 },
-                "label": {
-                  "type": "string",
-                  "description": "Label of the environment variable edit field"
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Website url of the vendor"
                 },
-                "default": {
-                  "type": "string",
-                  "description": "Default value of the environment variable"
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the vendor"
                 },
-                "description": {
-                  "type": "string",
-                  "description": "Description of the environment variable"
+                "street": {
+                    "type": "string",
+                    "description": "Street address with house number of the vendor"
                 },
-                "required": {
-                  "type": "boolean",
-                  "description": "Optional boolean flag that will apply the required validator"
+                "zip": {
+                    "type": "string",
+                    "description": "The zip of the vendor"
                 },
-                "pattern": {
-                  "type": "string",
-                  "description": "Optional regex pattern that will apply the pattern validator"
+                "city": {
+                    "type": "string",
+                    "description": "City of the vendor"
                 },
-                "readonly": {
-                  "type": "boolean",
-                  "description": "Optional boolean if the environment variable should be displayed as readonly"
-                },
-                "select": {
-                  "type": "array",
-                  "description": "Optional select options that will display a select input",
-                  "items": {
+                "country": {
+                    "type": "string",
+                    "description": "Country of the vendor"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "url",
+                "email",
+                "street",
+                "zip",
+                "city",
+                "country"
+            ]
+        },
+        "services": {
+            "type": "object",
+            "description": "services definition contains configuration that is applied to each app service",
+            "patternProperties": {
+                "^[a-zA-Z0-9-]+$": {
                     "type": "object",
+                    "description": "A definition of a service that will be started",
                     "properties": {
-                      "label": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "string"
-                      },
-                      "default": {
-                        "type": "boolean"
-                      }
+                        "type": {
+                            "type": "string",
+                            "description": "Define the type of the service. Only the value 'docker-compose' is supported at the moment",
+                            "enum": [
+                                "docker-compose"
+                            ]
+                        },
+                        "config": {
+                            "type": "object",
+                            "description": "Defines the docker settings for this service based on the docker compose structure. Any setting names that contain an underscore '_' should be converted to camelCase, e.g. replace `network_mode` with `networkMode`.",
+                            "properties": {
+                                "restart": {
+                                    "type": "string",
+                                    "description": "Defines the restart policy for the service. Restart policy 'always' is not allowed to prevent endless restarts.",
+                                    "optional": true,
+                                    "enum": [
+                                        "no",
+                                        "on-failure",
+                                        "unless-stopped"
+                                    ]
+                                },
+                                "image": {
+                                    "type": "string",
+                                    "description": "Defines the name of the docker image of the service"
+                                }
+                            },
+                            "required": [
+                                "image"
+                            ]
+                        }
                     },
                     "required": [
-                      "label",
-                      "value"
-                    ],
-                    "additionalProperties": false
-                  }
+                        "type",
+                        "config"
+                    ]
                 }
-              },
-              "required": [
-                "name",
-                "label"
-              ],
-              "additionalProperties": false
-            }
-          }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
         },
-        "additionalProperties": false
-      },
-      "publish": {
-        "type": "object",
-        "description": "Publish one or more proxy routes where the app will be accessible",
-        "patternProperties": {
-          "^[a-zA-Z0-9]+$": {
-            "description": "A specific proxy route from an internal origin to a publicly accessible path",
+        "environments": {
+            "type": "object",
+            "description": "The environments object includes the different environment settings for the defined services.",
+            "patternProperties": {
+                "^[a-zA-Z0-9-]+$": {
+                    "type": "object",
+                    "description": "A definition of an environment",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description": "Define the type of the volume. Type 'docker-compose' will create and associate when starting the container. Only the value 'docker-compose' is supported at the moment",
+                            "enum": [
+                                "docker-compose"
+                            ]
+                        },
+                        "config": {
+                            "type": "object",
+                            "description": "Defines the docker environment settings based on the docker compose structure",
+                            "properties": {
+                                "volumes": {
+                                    "type": "object",
+                                    "description": "Docker Volumes settings based on the docker compose structure"
+                                },
+                                "networks": {
+                                    "type": "object",
+                                    "description": "Docker networks settings based on the docker compose structure"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "settings": {
+            "type": "object",
+            "description": "The settings section defines the editable values of an app",
             "properties": {
-              "from": {
-                "type": "string",
-                "description": "An absolute URL consisting of protocol, origin host and port e.g. http://localhost:8456"
-              },
-              "to": {
-                "type": "string",
-                "description": "A relative URL path e.g. /home, which will be prefixed with the app name, i.e. app-name/home"
-              }
+                "environmentVariables": {
+                    "description": "Defines editable environment variables",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the environment variable"
+                            },
+                            "label": {
+                                "type": "string",
+                                "description": "Label of the environment variable edit field"
+                            },
+                            "default": {
+                                "type": "string",
+                                "description": "Default value of the environment variable"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Description of the environment variable"
+                            },
+                            "required": {
+                                "type": "boolean",
+                                "description": "Optional boolean flag that will apply the required validator"
+                            },
+                            "pattern": {
+                                "type": "string",
+                                "description": "Optional regex pattern that will apply the pattern validator"
+                            },
+                            "readonly": {
+                                "type": "boolean",
+                                "description": "Optional boolean if the environment variable should be displayed as readonly"
+                            },
+                            "select": {
+                                "type": "array",
+                                "description": "Optional select options that will display a select input",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "default": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "label",
+                                        "value"
+                                    ],
+                                    "additionalProperties": false
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "label"
+                        ],
+                        "additionalProperties": false
+                    }
+                }
             },
-            "required": [
-              "from",
-              "to"
-            ]
-          },
-          "additionalProperties": false
+            "additionalProperties": false
         },
-        "minProperties": 1,
-        "maxProperties": 1
-      },
-      "features": {
-        "description": "Declares a single hardware or software feature that is used by the application. The purpose of a `features` declaration is to inform about the set of hardware and software features on which your application depends. The definition is based on android manifest: https://developer.android.com/guide/topics/manifest/uses-feature-element",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "enum": [
-                "ucontrol.software.root_access"
-              ],
-              "description": "Specifies a single hardware or software feature used by the application, as a descriptor string."
+        "publish": {
+            "type": "object",
+            "description": "Publish one or more proxy routes where the app will be accessible",
+            "patternProperties": {
+                "^[a-zA-Z0-9]+$": {
+                    "description": "A specific proxy route from an internal origin to a publicly accessible path",
+                    "properties": {
+                        "from": {
+                            "type": "string",
+                            "description": "An absolute URL consisting of protocol, origin host and port e.g. http://localhost:8456"
+                        },
+                        "to": {
+                            "type": "string",
+                            "description": "A relative URL path e.g. /home, which will be prefixed with the app name, i.e. app-name/home"
+                        }
+                    },
+                    "required": [
+                        "from",
+                        "to"
+                    ]
+                },
+                "additionalProperties": false
             },
-            "required": {
-              "type": "boolean",
-              "description": "Boolean value that indicates whether the application requires the feature specified in `name`. The default value if not declared is `true`."
+            "minProperties": 1,
+            "maxProperties": 1
+        },
+        "features": {
+            "description": "Declares a single hardware or software feature that is used by the application. The purpose of a `features` declaration is to inform about the set of hardware and software features on which your application depends. The definition is based on android manifest: https://developer.android.com/guide/topics/manifest/uses-feature-element",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "enum": [
+                            "ucontrol.software.root_access"
+                        ],
+                        "description": "Specifies a single hardware or software feature used by the application, as a descriptor string."
+                    },
+                    "required": {
+                        "type": "boolean",
+                        "description": "Boolean value that indicates whether the application requires the feature specified in `name`. The default value if not declared is `true`."
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "additionalProperties": false
             }
-          },
-          "required": [
-            "name"
-          ],
-          "additionalProperties": false
+        },
+        "platform": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "uc[amgu]"
+            }
         }
-      },
-      "platform": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "pattern": "uc[amgu]"
-        }
-      }
     },
     "required": [
-      "manifestVersion",
-      "version",
-      "title",
-      "description",
-      "logo",
-      "services",
-      "platform",
-      "vendor"
+        "manifestVersion",
+        "version",
+        "title",
+        "description",
+        "logo",
+        "services",
+        "platform",
+        "vendor"
     ]
-  }
-  
+}
