@@ -360,7 +360,7 @@ By default, https is accepted as the server address.
   "password": "<password>",
   "serveraddress": "<serveraddress>",
   "plain-http": false,
-  "insecure": false,
+  "insecure": false
 }
 ```
 
@@ -402,7 +402,7 @@ Create a file `/var/lib/uc-aom/config.json` and provide a list of regex expressi
 {
     "appsAllowedList": [
         ".*node-red.*",
-        "test.*",
+        "test.*"
     ]
 }
 ```
