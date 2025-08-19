@@ -50,6 +50,8 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 65410         | u-os-app-u-sense-platform (Webserver)                                        | /                          |
 | 65411         | u-os-app-u-sense-platform (MQTT Broker, local)                               | /                          |
 | 65420         | u-os-app-swarmguard-agent                                                    | /home                      |
+| 65440         | u-os-app-mbs-ugw                                                             | /                          |
+| 65441         | u-os-app-mbs-ugw (SSH, default deactivated)                                  | /                          |
 | 65530         | u-os-app-codesys (Codesys WebServer HTTP)                                    | /                          |
 | 65531         | u-os-app-codesys (Codesys WebServer HTTPS)                                   | -                          |
 | 65532         | u-os-app-codesys (CODESYS Visualization Proxy)                               | /application/visualization |
