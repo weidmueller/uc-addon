@@ -348,9 +348,9 @@ docker run -it --rm --pull=always \
 
 ## Change app registry on the device
 
-Overriding the default app registry requires a debug firmware to be installed on the device.
+Overriding the default app registry requires SSH access to the device.
 
-If a debug firmware is installed, access the device and navigate to `/var/lib/uc-aom` and create the file `registrycredentials.json`.
+Access the device and navigate to `/var/lib/uc-aom` and create the file `registrycredentials.json`.
 
 By default, https is accepted as the server address.
 
@@ -410,6 +410,25 @@ Create a file `/var/lib/uc-aom/config.json` and provide a list of regex expressi
 The example file would include all apps with a repo-name that starts with `test` *or* that contains `node-red`.
 The regex example can be found [here](https://regexr.com/83h2s).
 
+## Expand allowed devices on the device
+
+Which allowed devices can be added to an app is initially determined by the default configuration `config.json` placed in `/usr/share/uc-aom`.
+
+The user can expand the list of allowed devices by adding his own `config.json` to `/var/lib/uc-aom` with the an entry for `DeviceMountAllowList`:
+```json
+{
+    ...
+    "DeviceMountAllowList": [
+        "<Regular Expression 1>",
+        "<Regular Expression 2>"
+    ],
+    ...
+}
+```
+
+`DeviceMountAllowList` should hold one or more `Regular Expressions` that the requested device needs to meet one of to be allowed as device.
+
+For the created `config.json` to take effect the [uc-aom needs to be restarted](#restarting-the-service).
 
 ## Restarting the service
 
