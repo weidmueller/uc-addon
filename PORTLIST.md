@@ -16,7 +16,6 @@ This list documents the used dockerports within the 65280-65535 port range.
 | 50062         | uc-modbus-slave                                                              |                            |
 | 50072         | uc-opc-ua                                                                    |                            |
 | 50082         | uc-information-service                                                       |                            |
-| 50092         | uc-iam                                                                       |                            |
 | 50100         | uc-addon                                                                     |                            |
 | 65280         | u-os-app-crosser                                                             | -                          |
 | 65283         | u-os-app-crosser                                                             | -                          |
